@@ -71,7 +71,7 @@ const hapusPersediaan = async (id) => {
   if (!confirm('Yakin ingin menghapus item ini?')) return
   try {
     loading.value = true
-    const res = await fetch(`https://jsonserver-production-430e.up.railway.app/persediaan${id}`, {
+    const res = await fetch(`https://jsonserver-production-430e.up.railway.app/persediaan/${id}`, {
       method: 'DELETE'
     })
     if (!res.ok) throw new Error('Gagal menghapus data')

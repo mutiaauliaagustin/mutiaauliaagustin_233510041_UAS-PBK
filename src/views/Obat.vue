@@ -75,7 +75,7 @@ const hapusObat = async (id) => {
   if (!confirm('Yakin mau hapus?')) return
   try {
     loading.value = true
-    const res = await fetch(`https://jsonserver-production-430e.up.railway.app/obat${id}`, {
+    const res = await fetch(`https://jsonserver-production-430e.up.railway.app/obat/${id}`, {
       method: 'DELETE'
     })
     if (!res.ok) throw new Error('Gagal hapus')
