@@ -19,7 +19,7 @@ const clearMessages = () => {
 const fetchObat = async () => {
   try {
     loading.value = true
-    const res = await fetch('http://localhost:3001/obat')
+    const res = await fetch('https://jsonserver-production-430e.up.railway.app/obat')
     daftarObat.value = await res.json()
   } catch (err) {
     error.value = 'Gagal memuat data obat: ' + err.message
@@ -47,7 +47,7 @@ const tambahObat = async () => {
 
   try {
     loading.value = true
-    const res = await fetch('http://localhost:3001/obat', {
+    const res = await fetch('https://jsonserver-production-430e.up.railway.app/obat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -75,7 +75,7 @@ const hapusObat = async (id) => {
   if (!confirm('Yakin mau hapus?')) return
   try {
     loading.value = true
-    const res = await fetch(`http://localhost:3001/obat/${id}`, {
+    const res = await fetch(`https://jsonserver-production-430e.up.railway.app/obat${id}`, {
       method: 'DELETE'
     })
     if (!res.ok) throw new Error('Gagal hapus')

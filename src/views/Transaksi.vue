@@ -6,7 +6,7 @@ const obatDipilih = ref('')
 const jumlah = ref(1)
 
 const fetchObat = async () => {
-  const res = await fetch('http://localhost:3001/obat')
+  const res = await fetch('https://jsonserver-production-430e.up.railway.app/obat')
   daftarObat.value = await res.json()
 }
 
@@ -24,7 +24,7 @@ const buatTransaksi = async () => {
     total: total.value
   }
 
-  await fetch('http://localhost:3001/transaksi', {
+  await fetch('hhttps://jsonserver-production-430e.up.railway.app/transaksi', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(transaksiBaru)

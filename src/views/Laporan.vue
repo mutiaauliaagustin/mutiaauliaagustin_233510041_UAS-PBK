@@ -4,7 +4,7 @@ import { ref, onMounted, computed } from 'vue'
 const transaksi = ref([])
 
 const fetchTransaksi = async () => {
-  const res = await fetch('http://localhost:3001/transaksi')
+  const res = await fetch('https://jsonserver-production-430e.up.railway.app/transaksi')
   transaksi.value = await res.json()
 }
 

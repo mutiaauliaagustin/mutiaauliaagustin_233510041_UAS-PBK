@@ -19,7 +19,7 @@ const clearMessages = () => {
 
 const checkServerStatus = async () => {
   try {
-    const response = await fetch('http://localhost:3001/')
+    const response = await fetch('https://jsonserver-production-430e.up.railway.app/')
     if (response.ok) {
       success.value = 'Server aktif! Memuat ulang data...'
       clearMessages()
@@ -29,7 +29,7 @@ const checkServerStatus = async () => {
       clearMessages()
     }
   } catch (err) {
-    error.value = 'Server tidak dapat diakses. Pastikan server berjalan di http://localhost:3001'
+    error.value = 'Server tidak dapat diakses. Pastikan server berjalan di https://jsonserver-production-430e.up.railway.app/'
     console.error(err)
     clearMessages()
   }
@@ -39,9 +39,9 @@ const fetchData = async () => {
   try {
     loading.value = true
     const [resObat, resPersediaan, resTransaksi] = await Promise.all([
-      fetch('http://localhost:3001/obat'),
-      fetch('http://localhost:3001/persediaan'),
-      fetch('http://localhost:3001/transaksi')
+      fetch('https://jsonserver-production-430e.up.railway.app/obat'),
+      fetch('https://jsonserver-production-430e.up.railway.app/persediaan'),
+      fetch('https://jsonserver-production-430e.up.railway.app/transaksi')
     ])
     if (!resObat.ok || !resPersediaan.ok || !resTransaksi.ok) throw new Error('Gagal memuat beberapa data')
 

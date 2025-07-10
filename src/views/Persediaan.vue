@@ -21,7 +21,7 @@ const clearMessages = () => {
 const fetchPersediaan = async () => {
   try {
     loading.value = true
-    const res = await fetch('http://localhost:3001/persediaan')
+    const res = await fetch('https://jsonserver-production-430e.up.railway.app/persediaan')
     daftarPersediaan.value = await res.json()
   } catch (err) {
     error.value = 'Gagal memuat data: ' + err.message
@@ -39,7 +39,7 @@ const tambahPersediaan = async () => {
 
   try {
     loading.value = true
-    const res = await fetch('http://localhost:3001/persediaan', {
+    const res = await fetch('https://jsonserver-production-430e.up.railway.app/persediaan', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -71,7 +71,7 @@ const hapusPersediaan = async (id) => {
   if (!confirm('Yakin ingin menghapus item ini?')) return
   try {
     loading.value = true
-    const res = await fetch(`http://localhost:3001/persediaan/${id}`, {
+    const res = await fetch(`https://jsonserver-production-430e.up.railway.app/persediaan${id}`, {
       method: 'DELETE'
     })
     if (!res.ok) throw new Error('Gagal menghapus data')
